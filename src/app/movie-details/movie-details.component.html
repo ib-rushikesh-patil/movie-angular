@@ -1,0 +1,39 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label>Movie Name</label>
+                        <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                            <div *ngIf="f.name.errors.required">Movie Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-grstNoup">
+                        <label>Description</label>
+                        <input type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+                        <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                            <div *ngIf="f.description.errors.required">Description is required</div>
+                        </div>
+                        <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                                <div *ngIf="f.description.errors.required">Description is required</div>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Release Date</label>
+                        <input type="text" formControlName="releaseDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.releaseDate.errors }" />
+                        <div *ngIf="submitted && f.releaseDate.errors" class="invalid-feedback">
+                            <div *ngIf="f.releaseDate.errors.required">Release Date is required</div>
+                            <div *ngIf="f.releaseDate.errors.releaseDate">Release Date </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
