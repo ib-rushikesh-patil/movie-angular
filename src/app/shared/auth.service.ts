@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { User } from './User.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { URL_CONSTANTS } from './URL_CONSTANTS.model';
 import { Router } from '@angular/router';
 
@@ -51,12 +51,24 @@ export class AuthService
         return localStorage.getItem('ACCESS_TOKEN');
       }
 
+      
+    
+     
       public onHello()
-      {
-        this.http.get(URL_CONSTANTS.HELLO_URL)
-        .subscribe(
-          data => console.log(data),
-          err => console.log(err)
-        );
+      {          
+        
+        this.http.get(URL_CONSTANTS.HELLO_URL).subscribe(
+          (response: any) => {
+            console.log("hello request response CODE==="+JSON.stringify(response));
+            alert(JSON.stringify(response));
+        }, 
+        (error: any) => {    
+          console.log("hello request error CODE==="+JSON.stringify(error))
+            console.log("Hello reuest ERORR CODE==="+error.status)
+              if (error.status === 500) {
+                  alert("Backend API is down");
+              }         
+        });   
+
       }
 }

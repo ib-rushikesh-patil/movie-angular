@@ -15,6 +15,7 @@ import { AuthService } from './shared/auth.service';
 import { HTTPTokenInterceptor } from './shared/htttp-interceptor-service';
 import { ErrorInterceptor } from './shared/error.interceptor';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,9 +33,9 @@ import { ErrorInterceptor } from './shared/error.interceptor';
     HttpClientModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HTTPTokenInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    MovieService,AuthService],
+     { provide: HTTP_INTERCEPTORS, useClass: HTTPTokenInterceptor, multi: true },
+     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+     MovieService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
